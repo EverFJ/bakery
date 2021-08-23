@@ -18,9 +18,6 @@ class Add extends React.Component {
   };
 
   render() {
-    // console.log("productName", this.state.productName);
-    // console.log("price", this.state.price);
-    console.log(this.props);
     return (
       <div className="container mt-5">
         {/* <h1>Add</h1> */}
@@ -40,10 +37,9 @@ class Add extends React.Component {
         />
         <button
           className="btn btn-primary"
-          // onClick={this.props.addItem(
-          //   this.state.productName,
-          //   this.state.price
-          // )}
+          onClick={() => {
+            this.props.addItem(this.state.productName, this.state.price);
+          }}
         >
           Add
         </button>
