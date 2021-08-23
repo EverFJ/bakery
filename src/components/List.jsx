@@ -10,7 +10,7 @@ class List extends React.Component {
               return (
                 <div className="row">
                   <li className="list-group-item col-md-6 col-12">
-                    {elem.name} : {elem.price}{" "}
+                    {elem.name} : {elem.price}
                   </li>
                   <button
                     className="btn btn-danger col-md-2 col-3 border"
