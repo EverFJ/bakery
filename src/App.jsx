@@ -13,15 +13,8 @@ class App extends React.Component {
       items: [],
     };
   }
-
-  selectAdd = () => {
-    this.setState({ activeTab: "add" });
-  };
-  selectList = () => {
-    this.setState({ activeTab: "list" });
-  };
-  selectPay = () => {
-    this.setState({ activeTab: "pay" });
+  handleButtonClick = (e) => {
+    this.setState({ activeTab: e.target.innerText.toLowerCase() });
   };
 
   addItem = (itemName, itemPrice) => {
@@ -39,29 +32,44 @@ class App extends React.Component {
   handleSubmit = () => {};
 
   render() {
-    // console.log("items", this.state.items);
+    console.log(this.state.activeTab);
     return (
       <>
         <h1 className="text-center mt-5">Bakery</h1>
 
-        {/* ADD */}
-        <Button onClick={this.selectAdd} isSelected={this.state.activeTab}>
+        {/* ADD BUTTON */}
+        <Button
+          onClick={this.handleButtonClick}
+          isSelected={this.state.activeTab}
+        >
           Add
         </Button>
 
-        {/* LIST */}
-        <Button onClick={this.selectList} isSelected={this.state.activeTab}>
+        {/* LIST BUTTON*/}
+        <Button
+          onClick={this.handleButtonClick}
+          isSelected={this.state.activeTab}
+        >
           List
         </Button>
 
-        {/* PAY */}
-        <Button onClick={this.selectPay} isSelected={this.state.activeTab}>
+        {/* PAY BUTTON */}
+        <Button
+          onClick={this.handleButtonClick}
+          isSelected={this.state.activeTab}
+        >
           Pay
         </Button>
+
+        {/* ADD COMPONENT */}
         {this.state.activeTab === "add" && <Add addItem={this.addItem} />}
+
+        {/* LIST COMPONENT */}
         {this.state.activeTab === "list" && (
           <List items={this.state.items} deleteItem={this.deleteItem} />
         )}
+
+        {/* PAY COMPONENT */}
         {this.state.activeTab === "pay" && <Pay />}
       </>
     );
