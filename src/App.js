@@ -1,9 +1,9 @@
-import React, { Children } from "react";
+import React from "react";
 import Add from "./components/Add";
 import List from "./components/List";
 import Pay from "./components/Pay";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "./components/Button";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends React.Component {
   constructor(props) {
@@ -24,6 +24,12 @@ class App extends React.Component {
     this.setState({ activeTab: "pay" });
   };
 
+  addItem = (itemName, itemPrice) => {
+    let newItems = [...this.state.items, { name: itemName, price: itemPrice }];
+    this.setState({ items: newItems });
+    console.log("items", this.state.items);
+  };
+
   handleSubmit = () => {};
 
   render() {
@@ -35,6 +41,7 @@ class App extends React.Component {
           onClick={this.selectAdd}
           // isSelected={this.state.activeTab === children ? true : false}
           children="Add"
+          addItem={this.addItem}
         />
         <Button
           onClick={this.selectList}
