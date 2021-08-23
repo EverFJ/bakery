@@ -6,7 +6,7 @@ class List extends React.Component {
       <div className="container m-5">
         <div className="row">
           <ul className="list-group">
-            {this.props.items.map((elem) => {
+            {this.props.items.map((elem, index) => {
               return (
                 <div className="row">
                   <li className="list-group-item col-md-6 col-12">
@@ -16,9 +16,7 @@ class List extends React.Component {
                     className="btn btn-danger col-md-2 col-3 border"
                     type="text"
                     onClick={() => {
-                      console.log("élément à supprimer", elem);
-                      this.props.items.pop(elem);
-                      // console.log(this.props.items);
+                      this.props.deleteItem(index);
                     }}
                   >
                     Delete
