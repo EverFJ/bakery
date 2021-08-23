@@ -6,7 +6,7 @@ class Button extends React.Component {
     return (
       <>
         <button
-          className={`btn ${
+          className={`btn border ${
             this.props.isSelected === this.props.children.toLowerCase() &&
             "btn-primary"
           }`}

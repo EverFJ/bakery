@@ -36,7 +36,7 @@ class Add extends React.Component {
           onChange={this.handlePriceChange}
         />
         <button
-          className="btn btn-primary"
+          className="btn btn-primary border"
           onClick={() => {
             this.props.addItem(this.state.productName, this.state.price);
           }}

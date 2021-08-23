@@ -26,7 +26,7 @@ class App extends React.Component {
 
   addItem = (itemName, itemPrice) => {
     let newItems = [...this.state.items, { name: itemName, price: itemPrice }];
-    this.setState({ items: newItems });
+    this.setState({ items: newItems, activeTab: "list" });
   };
 
   handleSubmit = () => {};
