@@ -20,10 +20,17 @@ class Add extends React.Component {
   render() {
     // console.log("productName", this.state.productName);
     // console.log("price", this.state.price);
+    console.log(this.props);
     return (
-      <div>
+      <div className="container mt-5">
         {/* <h1>Add</h1> */}
-        <input type="text" onChange={this.handleProductChange} />
+
+        <input
+          className="form-control"
+          type="text"
+          placeholder="Item"
+          onChange={this.handleProductChange}
+        />
         <input
           type="range"
           value={this.state.price}
@@ -32,7 +39,11 @@ class Add extends React.Component {
           onChange={this.handlePriceChange}
         />
         <button
-          onClick={this.props.addItem(this.state.productName, this.state.price)}
+          className="btn btn-primary"
+          // onClick={this.props.addItem(
+          //   this.state.productName,
+          //   this.state.price
+          // )}
         >
           Add
         </button>

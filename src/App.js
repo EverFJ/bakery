@@ -41,7 +41,6 @@ class App extends React.Component {
           onClick={this.selectAdd}
           // isSelected={this.state.activeTab === children ? true : false}
           children="Add"
-          addItem={this.addItem}
         />
         <Button
           onClick={this.selectList}
@@ -54,7 +53,7 @@ class App extends React.Component {
           // isSelected={this.state.activeTab === children}
           children="Pay"
         />
-        {this.state.activeTab === "add" && <Add />}
+        {this.state.activeTab === "add" && <Add addItem={this.addItem} />}
         {this.state.activeTab === "list" && <List />}
         {this.state.activeTab === "pay" && <Pay />}
       </>
