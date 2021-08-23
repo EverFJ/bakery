@@ -14,7 +14,7 @@ class Add extends React.Component {
   };
 
   handlePriceChange = (e) => {
-    this.setState({ price: e.target.value });
+    this.setState({ price: parseInt(e.target.value) });
   };
 
   render() {
