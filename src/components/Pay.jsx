@@ -6,7 +6,6 @@ class Pay extends React.Component {
     super(props);
     this.state = {
       basket: [],
-      history: [],
       total: 0,
       totalTVA: 0,
       totalEcoTax: 0,
@@ -52,12 +51,6 @@ class Pay extends React.Component {
     });
   };
 
-  handleSaveClick = () => {
-    this.setState({
-      history: [...this.state.basket],
-    });
-  };
-
   render() {
     const { basket, total, totalTVA, totalEcoTax, totalTTC } = this.state;
     // console.log("this.state.history : ", this.state.history);
@@ -77,7 +70,12 @@ class Pay extends React.Component {
         <button className="btn btn-danger " onClick={this.handleClearClick}>
           Clear
         </button>
-        <button className="btn btn-success m-1" onClick={this.handleSaveClick}>
+        <button
+          className="btn btn-success m-1"
+          onClick={() => {
+            this.props.handleSaveClick(this.state.basket);
+          }}
+        >
           Save
         </button>
       </div>

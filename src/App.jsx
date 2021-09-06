@@ -4,7 +4,6 @@ import List from "./components/List";
 import Pay from "./components/Pay";
 import Button from "./components/Button";
 import History from "./components/History";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends React.Component {
   constructor(props) {
@@ -29,6 +28,12 @@ class App extends React.Component {
       (elem, index) => indexNb !== index
     );
     this.setState({ items: newItems });
+  };
+
+  handleSaveClick = (basket) => {
+    this.setState({
+      history: [...basket],
+    });
   };
 
   handleSubmit = () => {};
@@ -80,7 +85,12 @@ class App extends React.Component {
         )}
 
         {/* PAY COMPONENT */}
-        {this.state.activeTab === "pay" && <Pay items={this.state.items} />}
+        {this.state.activeTab === "pay" && (
+          <Pay
+            items={this.state.items}
+            handleSaveClick={this.handleSaveClick}
+          />
+        )}
 
         {/* HISTORY COMPONENT */}
         {this.state.activeTab === "history" && (
