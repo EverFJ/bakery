@@ -14,6 +14,13 @@ class Pay extends React.Component {
   }
 
   handleSelect = (name, price) => {
+    let total = 0;
+    let totalEcoTax = 0;
+    total = price;
+    totalEcoTax += 0.03;
+    let totalTVA = price * 0.2;
+    let totalTTC = price + totalEcoTax + totalTVA;
+
     this.setState({
       basket: [
         ...this.state.basket,
@@ -22,22 +29,10 @@ class Pay extends React.Component {
           price: price,
         },
       ],
-    });
-    let total = 0;
-    let totalEcoTax = 0;
-
-    this.state.basket.forEach((elem) => {
-      total += elem.price;
-      totalEcoTax += 0.03;
-    });
-    let totalTVA = total * 0.2;
-    let totalTTC = total + totalEcoTax + totalTVA;
-
-    this.setState({
-      total: Math.round(total * 1000) / 1000,
-      totalTVA: Math.round(totalTVA * 1000) / 1000,
-      totalEcoTax: Math.round(totalEcoTax * 1000) / 1000,
-      totalTTC: Math.round(totalTTC * 1000) / 1000,
+      total: this.state.total + total,
+      totalTVA: this.state.totalTVA + totalTVA,
+      totalEcoTax: this.state.totalEcoTax + totalEcoTax,
+      totalTTC: this.state.totalTTC + totalTTC,
     });
   };
 
@@ -73,7 +68,7 @@ class Pay extends React.Component {
         <button
           className="btn btn-success m-1"
           onClick={() => {
-            this.props.handleSaveClick(this.state.basket);
+            this.props.handleSaveClick(basket);
           }}
         >
           Save
