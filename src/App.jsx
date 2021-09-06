@@ -4,7 +4,6 @@ import List from "./components/List";
 import Pay from "./components/Pay";
 import Button from "./components/Button";
 import History from "./components/History";
-import Card from "./components/Card";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends React.Component {
@@ -35,7 +34,7 @@ class App extends React.Component {
   handleSubmit = () => {};
 
   render() {
-    // console.log(this.state.activeTab);
+    console.log(this.state.history);
     return (
       <>
         <h1 className="text-center mt-5">Bakery</h1>

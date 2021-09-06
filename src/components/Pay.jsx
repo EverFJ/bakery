@@ -60,7 +60,7 @@ class Pay extends React.Component {
 
   render() {
     const { basket, total, totalTVA, totalEcoTax, totalTTC } = this.state;
-    console.log("this.state.history : ", this.state.history);
+    // console.log("this.state.history : ", this.state.history);
     return (
       <div className="m-3">
         {this.props.items.map((elem) => (
