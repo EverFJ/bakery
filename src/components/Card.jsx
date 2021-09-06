@@ -4,7 +4,7 @@ class Card extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: "",
+      image: "./images/image.png",
     };
   }
 
@@ -22,12 +22,12 @@ class Card extends React.Component {
     const { productName, price, onClick } = this.props;
     return (
       <button
-        className="btn btn-primary mt-3"
+        className="btn btn-primary mt-1"
         onClick={() => {
           onClick(productName, price);
         }}
       >
-        <img src={this.state.image} width="200px" alt="article image " />
+        <img src={this.state.image} width="200px" alt="article image" />
       </button>
     );
   }
