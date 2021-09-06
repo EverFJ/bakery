@@ -40,6 +40,7 @@ class App extends React.Component {
     const articles = reducedBasket.join(", ");
     this.setState({
       history: [...this.state.history, { articles: articles, total: totalTTC }],
+      activeTab: "history",
     });
   };
 
