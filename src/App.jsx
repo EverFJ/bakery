@@ -3,6 +3,7 @@ import Add from "./components/Add";
 import List from "./components/List";
 import Pay from "./components/Pay";
 import Button from "./components/Button";
+import Card from "./components/Card";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends React.Component {
@@ -32,7 +33,7 @@ class App extends React.Component {
   handleSubmit = () => {};
 
   render() {
-    console.log(this.state.activeTab);
+    // console.log(this.state.activeTab);
     return (
       <>
         <h1 className="text-center mt-5">Bakery</h1>
@@ -70,7 +71,7 @@ class App extends React.Component {
         )}
 
         {/* PAY COMPONENT */}
-        {this.state.activeTab === "pay" && <Pay />}
+        {this.state.activeTab === "pay" && <Pay items={this.state.items} />}
       </>
     );
   }
