@@ -39,10 +39,10 @@ class App extends React.Component {
   handleSubmit = () => {};
 
   render() {
-    console.log(this.state.history);
+    // console.log(this.state.history);
     return (
       <>
-        <h1 className="text-center mt-5">Bakery</h1>
+        <h1 className="text-center mt-1">Bakery</h1>
 
         {/* ADD BUTTON */}
         <Button
