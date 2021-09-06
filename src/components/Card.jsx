@@ -20,16 +20,14 @@ class Card extends React.Component {
 
   render() {
     const { productName, price, onClick } = this.props;
-    // console.log(this.props);
-    console.log(productName);
     return (
       <button
-        className="btn btn-primary"
+        className="btn btn-primary mt-3"
         onClick={() => {
           onClick(productName, price);
         }}
       >
-        <img src={this.state.image} alt="" />
+        <img src={this.state.image} width="200px" alt="article image " />
       </button>
     );
   }

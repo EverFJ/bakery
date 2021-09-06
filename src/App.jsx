@@ -3,6 +3,7 @@ import Add from "./components/Add";
 import List from "./components/List";
 import Pay from "./components/Pay";
 import Button from "./components/Button";
+import History from "./components/History";
 import Card from "./components/Card";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -12,6 +13,7 @@ class App extends React.Component {
     this.state = {
       activeTab: "add",
       items: [],
+      history: [],
     };
   }
   handleButtonClick = (e) => {
@@ -62,6 +64,14 @@ class App extends React.Component {
           Pay
         </Button>
 
+        {/* HISTORY BUTTON */}
+        <Button
+          onClick={this.handleButtonClick}
+          isSelected={this.state.activeTab}
+        >
+          History
+        </Button>
+
         {/* ADD COMPONENT */}
         {this.state.activeTab === "add" && <Add addItem={this.addItem} />}
 
@@ -72,6 +82,11 @@ class App extends React.Component {
 
         {/* PAY COMPONENT */}
         {this.state.activeTab === "pay" && <Pay items={this.state.items} />}
+
+        {/* HISTORY COMPONENT */}
+        {this.state.activeTab === "history" && (
+          <History items={this.state.history} />
+        )}
       </>
     );
   }
