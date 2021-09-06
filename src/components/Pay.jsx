@@ -30,9 +30,10 @@ class Pay extends React.Component {
         },
       ],
       total: this.state.total + total,
-      totalTVA: this.state.totalTVA + totalTVA,
-      totalEcoTax: this.state.totalEcoTax + totalEcoTax,
-      totalTTC: this.state.totalTTC + totalTTC,
+      totalTVA: Math.round((this.state.totalTVA + totalTVA) * 1000) / 1000,
+      totalEcoTax:
+        Math.round((this.state.totalEcoTax + totalEcoTax) * 1000) / 1000,
+      totalTTC: Math.round((this.state.totalTTC + totalTTC) * 1000) / 1000,
     });
   };
 
