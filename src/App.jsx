@@ -30,9 +30,16 @@ class App extends React.Component {
     this.setState({ items: newItems });
   };
 
-  handleSaveClick = (basket) => {
+  handleSaveClick = (basket, totalTTC) => {
+    const reducedBasket = [];
+    basket.forEach((element) => {
+      if (!reducedBasket.includes(element.name)) {
+        reducedBasket.push(element.name);
+      }
+    });
+    const articles = reducedBasket.join(", ");
     this.setState({
-      history: [...basket],
+      history: [...this.state.history, { articles: articles, total: totalTTC }],
     });
   };
 

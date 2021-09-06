@@ -30,10 +30,10 @@ class Pay extends React.Component {
         },
       ],
       total: this.state.total + total,
-      totalTVA: Math.round((this.state.totalTVA + totalTVA) * 1000) / 1000,
+      totalTVA: Math.round((this.state.totalTVA + totalTVA) * 100) / 100,
       totalEcoTax:
-        Math.round((this.state.totalEcoTax + totalEcoTax) * 1000) / 1000,
-      totalTTC: Math.round((this.state.totalTTC + totalTTC) * 1000) / 1000,
+        Math.round((this.state.totalEcoTax + totalEcoTax) * 100) / 100,
+      totalTTC: Math.round((this.state.totalTTC + totalTTC) * 100) / 100,
     });
   };
 
@@ -69,7 +69,7 @@ class Pay extends React.Component {
         <button
           className="btn btn-success m-1"
           onClick={() => {
-            this.props.handleSaveClick(basket);
+            this.props.handleSaveClick(basket, total);
           }}
         >
           Save

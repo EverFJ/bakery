@@ -15,7 +15,8 @@ class Card extends React.Component {
         ".png"
     )
       .then((res) => res.blob())
-      .then((data) => this.setState({ image: URL.createObjectURL(data) }));
+      .then((data) => this.setState({ image: URL.createObjectURL(data) }))
+      .catch((err) => console.error(err));
   }
 
   render() {
