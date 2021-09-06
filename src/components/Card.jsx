@@ -16,10 +16,13 @@ class Card extends React.Component {
     )
       .then((res) => res.blob())
       .then((data) => this.setState({ image: URL.createObjectURL(data) }))
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+      });
   }
 
   render() {
+    // console.log("state image", this.state.image);
     const { productName, price, onClick } = this.props;
     return (
       <button
@@ -28,7 +31,7 @@ class Card extends React.Component {
           onClick(productName, price);
         }}
       >
-        <img src={this.state.image} width="200px" alt="article image" />
+        <img src={this.state.image} width="200px" alt={productName} />
       </button>
     );
   }

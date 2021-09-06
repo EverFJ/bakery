@@ -9,7 +9,7 @@ class List extends React.Component {
             {this.props.items.map((elem, index) => {
               return (
                 <div className="row">
-                  <li className="list-group-item col-md-6 col-12">
+                  <li key={index} className="list-group-item col-md-6 col-12">
                     {elem.name} : {elem.price}
                   </li>
                   <button

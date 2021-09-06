@@ -8,6 +8,7 @@ class History extends React.Component {
           <ul className="list-group">
             {this.props.items.map((elem, index) => (
               <li
+                key={index}
                 className={`list-group-item col-md-6 col-12 ${
                   index % 2 === 0 && "bg-primary text-white"
                 } `}
